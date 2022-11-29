@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  nginx-1:
+    container_name: nginx-1
+    build: ./debian-python
+    tty: true    
+    ports:
+      - 8080:80
