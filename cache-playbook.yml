@@ -1,0 +1,36 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    server_name: caching-proxy
+    app_root: html5up-paradigm-shift
+    cache_path: /var/cache/nginx
+    max_cache_size_megabytes: 100
+  tasks:
+    - name: Update apt cache and install Nginx
+      apt:
+        name: nginx
+        state: latest
+        update_cache: yes
+    - name: Create Nginx cache directory
+      file:
+        path: "{{ cache_path }}"
+        state: directory
+    - name: Apply Nginx template
+      template:
+        src: files/reverse-proxy.conf.j2
+        dest: /etc/nginx/sites-available/default
+      notify:
+        - Restart Nginx
+    - name: Enable new site
+      file:
+        src: /etc/nginx/sites-available/default
+        dest: /etc/nginx/sites-enabled/default
+        state: link
+      notify: Restart Nginx
+
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
