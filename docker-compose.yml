@@ -101,3 +101,10 @@ services:
       - "9464:9464"     # prometheus data pull
       - "13133:13133"   # health
     restart: unless-stopped
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:main
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./files/grafana-provisioning.yml:/etc/grafana/provisioning/datasources/prometheus.yml
