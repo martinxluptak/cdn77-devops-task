@@ -39,7 +39,7 @@ services:
       - '2182:2181'
   kafka-1:
     container_name: kafka-1
-    image: 'bitnami/kafka:latest'
+    image: 'bitnami/kafka:3.1.2-debian-11-r26'
     ports:
       - '9092:9092'
     environment:
@@ -54,7 +54,7 @@ services:
       - zookeeper-2
   kafka-2:
     container_name: kafka-2
-    image: 'bitnami/kafka:latest'
+    image: 'bitnami/kafka:3.1.2-debian-11-r26'
     ports:
       - '9093:9092'
     environment:
