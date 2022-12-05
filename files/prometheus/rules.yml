@@ -1,0 +1,10 @@
+groups:
+- name: Kafka alerts
+  rules:
+  - alert: KafkaBrokersDownTo1
+    expr: dev_space_kafka_brokers == 1
+    for: 15s
+    labels:
+      severity: critical
+    annotations:
+      description: "Kafka cluster has only 1 active broker."

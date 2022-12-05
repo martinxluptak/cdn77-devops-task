@@ -18,7 +18,14 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - ./files/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./files/prometheus:/etc/prometheus
+  alertmanager:
+    container_name: alertmanager
+    image: prom/alertmanager:v0.24.0
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./files/alertmanager.yml:/etc/alertmanager/alertmanager.yml
   zookeeper-1:
     container_name: zookeeper-1
     image: 'bitnami/zookeeper:latest'
