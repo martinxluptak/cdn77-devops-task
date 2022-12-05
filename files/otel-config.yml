@@ -1,0 +1,26 @@
+receivers:
+  kafkametrics:
+    protocol_version: 3.1.2
+    scrapers:
+      - brokers
+      - topics
+      - consumers
+    brokers: kafka-1:9092,kafka-2:9092
+processors:
+  batch: # compresses data and reduces number of outgoing connections.
+
+exporters:
+  logging:
+    logLevel: 'debug'
+  prometheus:
+    endpoint: 0.0.0.0:9464
+    namespace: dev-space
+    resource_to_telemetry_conversion:
+      enabled: true
+
+service:
+  pipelines:
+    metrics:
+      receivers: [kafkametrics]
+      processors: [batch]
+      exporters: [prometheus, logging]
