@@ -10,4 +10,8 @@ server {
    default_type "text/html";
    try_files $uri.html $uri $uri/ =404;
   }
+
+  location = /stub_status {
+      stub_status;
+  }
 }

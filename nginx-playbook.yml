@@ -8,7 +8,7 @@
   tasks:
     - name: Update apt cache and install Nginx
       apt:
-        name: nginx
+        name: nginx-full
         state: latest
         update_cache: yes
 
