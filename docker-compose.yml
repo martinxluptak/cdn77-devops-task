@@ -108,3 +108,6 @@ services:
       - "3000:3000"
     volumes:
       - ./files/grafana-provisioning.yml:/etc/grafana/provisioning/datasources/prometheus.yml
+networks:
+  default:
+    name: cdn77-net
