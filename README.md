@@ -41,6 +41,8 @@ kafka-1, kafka-2, zookeeper-1, zookeper-2 are running and interacting as a distr
 
 ## Prerequisites
 
+[![works badge](https://cdn.jsdelivr.net/gh/nikku/works-on-my-machine@v0.2.0/badge.svg)](https://github.com/nikku/works-on-my-machine)
+
 Python3, Ansible, Docker and Docker Compose must be available on the host machine to deploy and test all services.
 On Debian, execute make setup in the root directory of the repository to install all prerequisites in one go.
 Otherwise, you will have to look up specific guides on how to make this software available on your system.
