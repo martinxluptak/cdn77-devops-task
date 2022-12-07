@@ -14,7 +14,7 @@
 
     - name: Copy website files to the server's document root
       copy:
-        src: "static/{{ app_root }}"
+        src: "../static/{{ app_root }}"
         dest: "{{ document_root }}"
         mode: preserve
 
