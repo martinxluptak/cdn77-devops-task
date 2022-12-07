@@ -16,6 +16,7 @@
       unarchive:
         src: "../static/html5up-paradigm-shift.tar.gz"
         dest: "{{ document_root }}"
+        mode: '555'
 
     - name: Apply Nginx template
       template:
