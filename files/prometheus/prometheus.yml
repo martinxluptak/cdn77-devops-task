@@ -15,3 +15,8 @@ scrape_configs:
     # scheme defaults to 'http'.
     static_configs:
       - targets: ['otel-collector:9464']
+  - job_name: 'nginx-exporter'
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+      - targets: ['nginx-exporter:9113']

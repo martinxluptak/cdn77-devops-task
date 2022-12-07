@@ -107,7 +107,18 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./files/grafana-provisioning.yml:/etc/grafana/provisioning/datasources/prometheus.yml
+      - ./files/grafana/provisioning:/etc/grafana/provisioning
+      - ./files/grafana/dashboards/nginx_rev1.json:/var/lib/grafana/dashboards/nginx_rev1.json
+  nginx-exporter:
+    container_name: nginx-exporter
+    image: "nginx/nginx-prometheus-exporter"
+    ports:
+      - "9113:9113"
+    environment:
+      - SCRAPE_URI=http://nginx-1/stub_status
+      - NGINX_RETRIES=20
+      - NGINX_RETRY_INTERVAL=20s
+    restart: unless-stopped
 networks:
   default:
     name: cdn77-net
