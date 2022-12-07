@@ -27,7 +27,7 @@ The stack runs on an internal docker bridge network `cdn77-net`.
 
 ### nginx servers
 
-Two nginx servers are running and reachable from hypervisor on http://localhost:8080 and http://localhost:8081. The first one, nginx-1, hosts a boilerplate static content website. The second one, nginx-2, acts as a reverse caching prxoy for nginx-1. nginx-1 exposes a stub status page reachable on http://localhost:8080/stub_status . These servers are deployed with ansible playbooks playbook/nginx.yml and playbook/cache.yml and use Jinja2 templated configuration files files/nginx.conf.j2 and files/reverse-proxy.conf.j2.
+Two nginx servers are running and reachable from hypervisor on http://localhost:8080 and http://localhost:8081. The first one, nginx-1, hosts a boilerplate static content website. The second one, nginx-2, acts as a reverse caching prxoy for nginx-1. nginx-1 exposes a stub status page reachable on http://localhost:8080/stub_status . These servers are deployed with ansible playbooks playbook/nginx.yml and playbook/cache.yml and use Jinja2 templated configuration files `files/nginx.conf.j2` and `files/reverse-proxy.conf.j2`.
 
 
 ### Monitoring tools 
@@ -44,7 +44,7 @@ kafka-1, kafka-2, zookeeper-1, zookeper-2 are running and interacting as a distr
 [![works badge](https://cdn.jsdelivr.net/gh/nikku/works-on-my-machine@v0.2.0/badge.svg)](https://github.com/nikku/works-on-my-machine)
 
 Python3, Ansible, Docker and Docker Compose must be available on the host machine to deploy and test all services.
-On Debian, execute make setup in the root directory of the repository to install all prerequisites in one go.
+On Debian, execute `sh setup` in the root directory of the repository to install all prerequisites in one go.
 Otherwise, you will have to look up specific guides on how to make this software available on your system.
 
 ## Running the stack
