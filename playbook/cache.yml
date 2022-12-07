@@ -18,7 +18,7 @@
         state: directory
     - name: Apply Nginx template
       template:
-        src: files/reverse-proxy.conf.j2
+        src: ../files/reverse-proxy.conf.j2
         dest: /etc/nginx/sites-available/default
       notify:
         - Restart Nginx
