@@ -4,7 +4,7 @@
 sudo apt-get update
 
 # install python3
-sudo apt-get install python3 python3-pip python3-virtualenv
+sudo apt-get install -y python3 python3-pip python3-virtualenv
 
 # create and enable virtualenv
 python3 -m venv env
@@ -31,7 +31,12 @@ echo \
 
 # update apt index and install docker, docker-compose
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 # test docker installation
 sudo docker run hello-world
+
+
+# add user to docker group, login again
+usermod -a -G docker $USER
+sudo su $USER
