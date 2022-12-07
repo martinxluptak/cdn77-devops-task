@@ -49,8 +49,8 @@ Otherwise, you will have to look up specific guides on how to make this software
 
 ## Running the stack
 
-In the root directory, run make deploy.
-To remove all containers, run make clean.
+In the root directory, run `make deploy`.
+To remove all containers, run `make clean`.
 
 ## Testing service functionality
 
@@ -61,7 +61,7 @@ This will cause the stub status page available on `http://localhost:8080/stub_st
 `nginx-exporter` fetches this data, converts it into appropriate Prometheus metrics types and exposes them on an internal endpoint.
 This endpoint is periodically scraped by Prometheus and finally, Grafana displays it in a nginx-exporter dashboard, which is imported by default during setup.
 
-Run the script with make test.
+Run the script with `python3 test/nginx_load_test.py`.
 
 ### Killing a Kafka broker
 
