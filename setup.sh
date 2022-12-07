@@ -4,7 +4,7 @@
 sudo apt-get update
 
 # install python3
-sudo apt-get install -y python3 python3-pip python3-virtualenv
+sudo apt-get install -y python3 python3-pip python3-venv
 
 # create and enable virtualenv
 python3 -m venv env
@@ -14,7 +14,7 @@ source env/bin/activate
 pip3 install ansible
 
 # install tools for adding docker apt repository
-sudo apt-get install \
+sudo apt-get install -y \
     ca-certificates \
     curl \
     gnupg \
@@ -38,5 +38,5 @@ sudo docker run hello-world
 
 
 # add user to docker group, login again
-usermod -a -G docker $USER
-sudo su $USER
+sudo usermod -a -G docker $USER
+sudo su - $USER
